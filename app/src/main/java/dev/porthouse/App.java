@@ -32,7 +32,6 @@ public class App {
             Class<?> klass = Class.forName(String.format("dev.porthouse.solutions.Day%dSolution", day));
             Constructor<?> ctor = klass.getDeclaredConstructor(String.class);
 
-
             var solution = (ISolution) ctor.newInstance(String.format("day%02d.txt", day));
             System.out.println(solution.runPart1());
             solution = (ISolution) ctor.newInstance(String.format("day%02d.txt", day));
@@ -45,15 +44,5 @@ public class App {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-
-
-
-
-
-        try {
-
-        } catch (Exception e) {
-        }
-
     }
 }

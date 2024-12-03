@@ -8,7 +8,7 @@ import dev.porthouse.ISolution;
 
 public class Day3SolutionTest {
 
-    private ISolution<Integer> solution;
+    private ISolution solution;
 
     @BeforeEach
     public void init() {
