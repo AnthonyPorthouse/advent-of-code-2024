@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 import dev.porthouse.BaseSolution;
 
-public class Day3Solution extends BaseSolution<Integer> {
+public class Day3Solution extends BaseSolution {
 
     public static final Logger LOGGER = Logger.getLogger(Day2Solution.class.getName());
 

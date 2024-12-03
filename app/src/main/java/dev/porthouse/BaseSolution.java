@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 
 import dev.porthouse.utils.FileReader;
 
-public abstract class BaseSolution<T> implements ISolution<T> {
+public abstract class BaseSolution implements ISolution {
 
     protected String file;
 

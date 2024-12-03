@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 import dev.porthouse.BaseSolution;
 
-public class Day2Solution extends BaseSolution<Integer> {
+public class Day2Solution extends BaseSolution {
 
     enum Direction {
         Ascending,

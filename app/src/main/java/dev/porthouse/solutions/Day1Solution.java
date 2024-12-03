@@ -8,7 +8,7 @@ import java.util.Map;
 
 import dev.porthouse.BaseSolution;
 
-public class Day1Solution extends BaseSolution<Integer> {
+public class Day1Solution extends BaseSolution {
 
     public Day1Solution(String file) {
         super(file);
