@@ -2,7 +2,6 @@ package dev.porthouse.solutions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -88,54 +87,20 @@ public class Day2Solution extends BaseSolution {
 
     private Boolean isSafeWithDamper(List<Integer> values) {
 
-        HashMap<Direction, Integer> directionCount = new HashMap<>();
-        directionCount.put(Direction.Ascending, 0);
-        directionCount.put(Direction.Descending, 0);
+        if (isSafe(values)) {
+            return true;
+        }
 
-        Integer unsafeGaps = 0;
+        for (int i = 0; i < values.size(); i++) {
+            var newValues = new ArrayList<>(values);
+            newValues.remove(i);
 
-        for (int i = 0; i < values.size() - 1; i++) {
-            Integer a = values.get(i);
-            Integer b = values.get(i + 1);
-
-            if (isIncrementing(a, b)) {
-                directionCount.put(Direction.Ascending, directionCount.get(Direction.Ascending) + 1);
-            } else {
-                directionCount.put(Direction.Descending, directionCount.get(Direction.Descending) + 1);
-            }
-
-            if (directionCount.get(Direction.Ascending) > 1 && directionCount.get(Direction.Descending) > 1) {
-                LOGGER.info("Too many direction changes");
-                return false;
-            }
-
-            // Check number distance
-            if (!isSafeDistance(a, b)) {
-                // if start or end element, we can always remove
-                if (i == 0 || i == values.size() - 1) {
-                    unsafeGaps += 1;
-                }
-
-                // If distance between a and c is too large we skip
-                if (i < values.size() - 2) {
-                    Integer c = values.get(i + 2);
-                    if (!isSafeDistance(a, c)) {
-                        return false;
-                    } else {
-                        unsafeGaps += 1;
-                    }
-                }
-
-            }
-
-            // if too many unsafe gaps, skip
-            if (unsafeGaps > 1) {
-                LOGGER.info("Too many gaps");
-                return false;
+            if (isSafe(newValues)) {
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
 
