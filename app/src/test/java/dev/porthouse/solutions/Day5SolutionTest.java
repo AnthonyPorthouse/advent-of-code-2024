@@ -22,6 +22,6 @@ public class Day5SolutionTest {
 
     @Test
     void part2MatchesExample() {
-        assertEquals(-1, solution.runPart2());
+        assertEquals(123, solution.runPart2());
     }
 }

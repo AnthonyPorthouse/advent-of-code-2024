@@ -64,7 +64,16 @@ public class Day5Solution extends BaseSolution {
 
     @Override
     public Integer runPart2() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        var invalidUpdates = new ArrayList<List<Integer>>();
+
+        updates.forEach((update) -> {
+            if (!isValidUpdate(update)) {
+                invalidUpdates.add(sortUpdate(update));
+            }
+        });
+
+        return invalidUpdates.stream()
+            .reduce(0, (acc, list) -> acc + list.get(list.size() / 2), Integer::sum);
     }
 
     private Boolean isValidUpdate(List<Integer> update) {
@@ -84,4 +93,22 @@ public class Day5Solution extends BaseSolution {
         return true;
     }
 
+    private List<Integer> sortUpdate(List<Integer> update) {
+
+        List<Integer> sortedUpdate = new ArrayList<>(update);
+
+        sortedUpdate.sort((a, b) -> {
+            if (rules.getOrDefault(a, new ArrayList<>()).contains(b)) {
+                return -1;
+            }
+
+            if (a.equals(b)) {
+                return 0;
+            }
+
+            return 1;
+        });
+
+        return sortedUpdate;
+    }
 }
