@@ -21,6 +21,6 @@ private ISolution solution;
 
     @Test
     void part2MatchesExample() {
-        assertEquals(-1, solution.runPart2());
+        assertEquals(6, solution.runPart2());
     }
 }
